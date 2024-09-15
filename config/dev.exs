@@ -25,8 +25,9 @@ config :corp, CorpWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "kdfBBqi5jN0J6j5Z1CgJNxHIrlbY64KY21JhniCvbCytKrFGQ6DHfJ2TEyOMNo7S",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:corp, ~w(--sourcemap=inline --watch)]},
-    tailwind: {Tailwind, :install_and_run, [:corp, ~w(--watch)]}
+    #    esbuild: {Esbuild, :install_and_run, [:corp, ~w(--sourcemap=inline --watch)]},
+    #    tailwind: {Tailwind, :install_and_run, [:corp, ~w(--watch)]}
+    npm: ["run", "dev", cd: Path.expand("../assets", __DIR__)]
   ]
 
 # ## SSL Support
@@ -61,6 +62,12 @@ config :corp, CorpWeb.Endpoint,
       ~r"lib/corp_web/(controllers|live|components)/.*(ex|heex)$"
     ]
   ]
+
+config :live_vue,
+  vite_host: "http://localhost:5173",
+  ssr_module: LiveVue.SSR.ViteJS,
+  # if you want to disable SSR by default, make it false
+  ssr: true
 
 # Enable dev routes for dashboard and mailbox
 config :corp, dev_routes: true

@@ -81,6 +81,12 @@ defmodule CorpWeb do
 
   defp html_helpers do
     quote do
+      # Add support to Vue Components
+      use LiveVue
+
+      # Generate component for each vue file, so you can omit v-component="name".
+      # You can configure path to your components by using optional :vue_root param
+      use LiveVue.Components, vue_root: ["./assets/vue", "./lib/corp_web"]
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components and translation

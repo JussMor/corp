@@ -8,6 +8,7 @@ defmodule Corp.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      {NodeJS.Supervisor, [path: LiveVue.SSR.NodeJS.server_path(), pool_size: 4]},
       CorpWeb.Telemetry,
       Corp.Repo,
       {DNSCluster, query: Application.get_env(:corp, :dns_cluster_query) || :ignore},
