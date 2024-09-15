@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Button } from "@/components/ui/button";
 import { ref } from "vue";
 const props = defineProps<{ count: number }>();
 const emit = defineEmits<{ inc: [{ value: number }] }>();
@@ -15,7 +16,8 @@ const diff = ref<string>("1");
     @click="emit('inc', { value: parseInt(diff) })"
     class="mt-4 bg-black text-white rounded p-2 block"
   >
-    Increase counter by {{ diff }}
+    Test
   </button>
-</template>
 
+  <Button> Increase counter by {{ diff }} </Button>
+</template>
