@@ -1,5 +1,3 @@
-spark_locals_without_parens = []
-
 [
   import_deps: [
     :ash_postgres,
