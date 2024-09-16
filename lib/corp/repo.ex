@@ -4,7 +4,7 @@ defmodule Corp.Repo do
 
   def installed_extensions do
     # Add extensions here, and the migration generator will install them.
-    ["ash-functions"]
+    ["uuid-ossp", "citext", "ash-functions"]
   end
 
   def min_pg_version do

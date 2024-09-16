@@ -41,7 +41,7 @@ config :spark,
 config :corp,
   ecto_repos: [Corp.Repo],
   generators: [timestamp_type: :utc_datetime],
-  ash_domains: [Corp.Support]
+  ash_domains: [Corp.Support, Corp.Accounts]
 
 # Configures the endpoint
 config :corp, CorpWeb.Endpoint,

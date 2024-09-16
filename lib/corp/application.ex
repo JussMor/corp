@@ -18,7 +18,8 @@ defmodule Corp.Application do
       # Start a worker by calling: Corp.Worker.start_link(arg)
       # {Corp.Worker, arg},
       # Start to serve requests, typically the last entry
-      CorpWeb.Endpoint
+      CorpWeb.Endpoint,
+      {AshAuthentication.Supervisor, otp_app: :corp}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

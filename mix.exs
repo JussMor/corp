@@ -38,7 +38,7 @@ defmodule Corp.MixProject do
       {:ash_phoenix, "~> 2.1"},
       {:ash_authentication, "~> 4.0"},
       {:ash_authentication_phoenix, "~> 2.1"},
-      {:picosat_elixir, "~> 0.2"},
+      {:simple_sat, "~> 0.1"},
       {:igniter, "~> 0.3"},
       {:phoenix, "~> 1.7.14"},
       {:phoenix_ecto, "~> 4.5"},
