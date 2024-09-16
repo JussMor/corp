@@ -35,6 +35,9 @@ defmodule Corp.MixProject do
     [
       {:ash_postgres, "~> 2.0"},
       {:ash, "~> 3.0"},
+      {:ash_authentication, "~> 4.0"},
+      {:picosat_elixir, "~> 0.2.3"},
+      {:ash_authentication_phoenix, "~> 2.1"},
       {:igniter, "~> 0.3"},
       {:phoenix, "~> 1.7.14"},
       {:phoenix_ecto, "~> 4.5"},
