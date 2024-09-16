@@ -21,6 +21,7 @@ module.exports = {
     "./components/**/*.{ts,tsx,vue}",
     "./app/**/*.{ts,tsx,vue}",
     "./src/**/*.{ts,tsx,vue}",
+    "../deps/ash_authentication_phoenix/**/*.*ex",
   ],
 
   theme: {
