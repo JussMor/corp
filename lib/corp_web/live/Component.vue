@@ -5,6 +5,7 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { ref, defineProps } from "vue";
 import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
@@ -72,26 +73,29 @@ function onExpand() {
 </script>
 
 <template>
-  <ResizablePanelGroup direction="horizontal">
-    <ResizablePanel
-      id="resize-panel-nav-1"
-      :default-size="defaultLayout[0]"
-      :collapsed-size="navCollapsedSize"
-      collapsible
-      :min-size="15"
-      :max-size="20"
-      :class="
-        cn(
-          isCollapsed && 'min-w-[50px] transition-all duration-300 ease-in-out',
-        )
-      "
-      @expand="onExpand"
-      @collapse="onCollapse"
-      >One
-      <Separator />
-      <Nav :is-collapsed="isCollapsed" :links="links" />
-    </ResizablePanel>
-    <ResizableHandle with-handle />
-    <ResizablePanel>Two</ResizablePanel>
-  </ResizablePanelGroup>
+  <TooltipProvider :delay-duration="0">
+    <ResizablePanelGroup direction="horizontal">
+      <ResizablePanel
+        id="resize-panel-nav-1"
+        :default-size="defaultLayout[0]"
+        :collapsed-size="navCollapsedSize"
+        collapsible
+        :min-size="15"
+        :max-size="20"
+        :class="
+          cn(
+            isCollapsed &&
+              'min-w-[50px] transition-all duration-300 ease-in-out',
+          )
+        "
+        @expand="onExpand"
+        @collapse="onCollapse"
+        >One
+        <Separator />
+        <Nav :is-collapsed="isCollapsed" :links="links" />
+      </ResizablePanel>
+      <ResizableHandle with-handle />
+      <ResizablePanel>Two</ResizablePanel>
+    </ResizablePanelGroup>
+  </TooltipProvider>
 </template>
