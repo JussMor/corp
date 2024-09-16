@@ -6,15 +6,9 @@ defmodule Corp.Accounts.User do
     # authorizers: [Ash.Policy.Authorizer],
     extensions: [AshAuthentication]
 
-  attributes do
-    uuid_primary_key :id
-
-    attribute :email, :ci_string do
-      allow_nil? false
-      public? true
-    end
-
-    attribute :hashed_password, :string, allow_nil?: false, sensitive?: true
+  postgres do
+    table "users"
+    repo Corp.Repo
   end
 
   authentication do
@@ -31,9 +25,15 @@ defmodule Corp.Accounts.User do
     end
   end
 
-  postgres do
-    table "users"
-    repo Corp.Repo
+  attributes do
+    uuid_primary_key :id
+
+    attribute :email, :ci_string do
+      allow_nil? false
+      public? true
+    end
+
+    attribute :hashed_password, :string, allow_nil?: false, sensitive?: true
   end
 
   identities do

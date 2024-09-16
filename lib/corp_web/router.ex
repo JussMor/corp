@@ -1,6 +1,8 @@
 defmodule CorpWeb.Router do
   use CorpWeb, :router
 
+  use AshAuthentication.Phoenix.Router
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -8,10 +10,12 @@ defmodule CorpWeb.Router do
     plug :put_root_layout, html: {CorpWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug :load_from_session
   end
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug :load_from_bearer
   end
 
   scope "/", CorpWeb do
@@ -20,6 +24,20 @@ defmodule CorpWeb.Router do
     get "/", PageController, :home
 
     live "/counter", LiveCounter
+
+    # add these lines -->
+
+    # Standard controller-backed routes
+    auth_routes AuthController, Corp.Accounts.User, path: "/auth"
+    sign_out_route AuthController
+
+    # Prebuilt LiveViews for signing in, registration, resetting, etc.
+    # Leave out `register_path` and `reset_path` if you don't want to support
+    # user registration and/or password resets respectively.
+    sign_in_route(register_path: "/register", reset_path: "/reset", auth_routes_prefix: "/auth")
+    reset_route []
+
+    # <-- add these lines
   end
 
   # Other scopes may use custom stacks.
