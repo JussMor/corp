@@ -4,14 +4,15 @@ defmodule CorpWeb.LiveCounter do
   def render(assigns) do
     ~H"""
     <div>
-      <.vue
-        id="counter"
-        count={@count}
-        v-component="Counter"
-        v-socket={@socket}
-        v-ssr={true}
-        v-on:inc={JS.push("inc")}
-      /> check <.vue id="component" v-component="Component" v-socket={@socket} />
+      <%!-- <.vue --%>
+      <%!--   id="counter" --%>
+      <%!--   count={@count} --%>
+      <%!--   v-component="Counter" --%>
+      <%!--   v-socket={@socket} --%>
+      <%!--   v-ssr={true} --%>
+      <%!--   v-on:inc={JS.push("inc")} --%>
+      <%!-- /> check  --%>
+      <.vue id="component" v-component="Component" v-socket={@socket} />
     </div>
     """
   end
