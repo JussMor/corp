@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import CaretSortIcon from "@/node_modules/@radix-icons/vue/CaretSortIcon";
-import CheckIcon from "@/node_modules/@radix-icons/vue/CheckIcon";
-import PlusCircledIcon from "@/node_modules/@radix-icons/vue/PlusCircledIcon";
+import CaretSortIcon from "@/node_modules/@radix-icons/vue/esm/CaretSortIcon";
+import CheckIcon from "@/node_modules/@radix-icons/vue/esm/CheckIcon";
+import PlusCircledIcon from "@/node_modules/@radix-icons/vue/esm/PlusCircledIcon";
 
 import { cn } from "@/lib/utils";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
