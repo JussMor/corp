@@ -10,6 +10,10 @@ import { ref, defineProps } from "vue";
 import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
 import Nav, { type LinkProp } from "../components/Nav.vue";
+import Search from "../components/Search.vue";
+import TeamSwitcher from "../components/TeamSwitcher.vue";
+import TopNav from "../components/TopNav.vue";
+import UserNav from "../components/UserNav.vue";
 
 interface NavProps {
   defaultLayout?: number[];
@@ -73,6 +77,16 @@ function onExpand() {
 </script>
 
 <template>
+  <div class="border-b">
+    <div class="flex h-16 items-center px-4">
+      <TeamSwitcher />
+      <TopNav class="mx-6" />
+      <div class="ml-auto flex items-center space-x-4">
+        <Search />
+        <UserNav />
+      </div>
+    </div>
+  </div>
   <TooltipProvider :delay-duration="0">
     <ResizablePanelGroup direction="horizontal">
       <ResizablePanel
@@ -90,7 +104,7 @@ function onExpand() {
         "
         @expand="onExpand"
         @collapse="onCollapse"
-        >One
+      >
         <Separator />
         <Nav :is-collapsed="isCollapsed" :links="links" />
       </ResizablePanel>
